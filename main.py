@@ -58,7 +58,7 @@ def rotateServo(ev=None):
         
 # Define a function to set open or close for the servo
 def setOpenClose(ev=None):
-    global open
+    
     open = not open
 
 
@@ -67,7 +67,10 @@ def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
-    prevState = open = False
+    global open
+    open = False
+    global prevState 
+    prevState = False
     while True:
         print('oh')
         if (prevState != open):
