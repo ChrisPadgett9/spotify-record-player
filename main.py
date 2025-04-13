@@ -69,11 +69,11 @@ def main():
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
     while True:
         print('oh')
-        if (open):
+        if (open == True):
             for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
                 setAngle(i)     # Write to servo
                 time.sleep(0.002)
-        else:
+        elif (open == False):
             for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
                 setAngle(i)
                 time.sleep(0.001)
