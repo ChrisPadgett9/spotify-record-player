@@ -39,7 +39,7 @@ def swLed(ev=None):
         print ('...LED ON')
 
 # Define a function to rotate the servo
-def rotateServo():
+def rotateServo(ev=None):
     for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
         setAngle(i)     # Write to servo
         time.sleep(0.002)
