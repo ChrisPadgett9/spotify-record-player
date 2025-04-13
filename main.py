@@ -64,7 +64,7 @@ def main():
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=rotateServo)
     while True:
         # Don't do anything.
-        time.sleep(1)
+        # time.sleep(1)
 
 # Define a destroy function for clean up everything after
 # the script finished
