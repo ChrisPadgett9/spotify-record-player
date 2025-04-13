@@ -70,7 +70,7 @@ def main():
     while True:
         # Don't do anything.
         print('oh')
-        # time.sleep(1)
+        time.sleep(1)
 
 # Define a destroy function for clean up everything after
 # the script finished
