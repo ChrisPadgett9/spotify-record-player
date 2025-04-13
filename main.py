@@ -67,10 +67,10 @@ def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=rotateServo)
-    while True:
-        # Don't do anything.
-        print('oh')
-        time.sleep(1)
+    # while True:
+    #     # Don't do anything.
+    #     print('oh')
+    #     time.sleep(1)
 
 # Define a destroy function for clean up everything after
 # the script finished
