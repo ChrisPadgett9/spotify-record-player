@@ -1,13 +1,25 @@
 import RPi.GPIO as GPIO
 import time
 
-LedPin = 20  # Set GPIO17 as LED pin
-BtnPin = 21  # Set GPIO18 as button pin
+
+# Servo Stuff
 SERVO_MIN_PULSE = 500
 SERVO_MAX_PULSE = 2500
 ServoPin = 18
 
-# Set Led status to True(OFF)
+def map(value, inMin, inMax, outMin, outMax):
+    return (outMax - outMin) * (value - inMin) / (inMax - inMin) + outMin
+
+def setAngle(angle):      # make the servo rotate to specific angle (0-180 degrees)
+    angle = max(0, min(180, angle))
+    pulse_width = map(angle, 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE)
+    pwm = map(pulse_width, 0, 20000, 0, 100)
+    p.ChangeDutyCycle(pwm)#map the angle to duty cycle and output it
+
+
+# Button and LED Stuff
+LedPin = 20  # Set GPIO17 as LED pin
+BtnPin = 21  # Set GPIO18 as button pin
 Led_status = True
 
 # Define a setup function for some setup
@@ -73,20 +85,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         destroy()
 
-# Servo Stuff
-SERVO_MIN_PULSE = 500
-SERVO_MAX_PULSE = 2500
-ServoPin = 18
-
-def map(value, inMin, inMax, outMin, outMax):
-    return (outMax - outMin) * (value - inMin) / (inMax - inMin) + outMin
-
-
-def setAngle(angle):      # make the servo rotate to specific angle (0-180 degrees)
-    angle = max(0, min(180, angle))
-    pulse_width = map(angle, 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE)
-    pwm = map(pulse_width, 0, 20000, 0, 100)
-    p.ChangeDutyCycle(pwm)#map the angle to duty cycle and output it
 
 def loop():
     while True:
@@ -99,6 +97,3 @@ def loop():
             time.sleep(0.001)
         time.sleep(1)
 
-def destroyServo():
-    p.stop()
-    GPIO.cleanup()
