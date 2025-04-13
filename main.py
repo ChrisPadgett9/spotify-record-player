@@ -76,7 +76,8 @@ def main():
         elif (open == False):
             for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
                 setAngle(i)
-                time.sleep(0.001)
+                time.sleep(0.002)
+        time.sleep(1)
 
 # Define a destroy function for clean up everything after
 # the script finished
