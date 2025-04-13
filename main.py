@@ -52,25 +52,31 @@ def swLed(ev=None):
 
 # Define a function to rotate the servo
 def rotateServo(ev=None):
-     while True:
-        for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
-            setAngle(i)     # Write to servo
-            time.sleep(0.002)
-        time.sleep(1)
-        for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
-            setAngle(i)
-            time.sleep(0.001)
-        time.sleep(1)
+    for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
+        setAngle(i)     # Write to servo
+        time.sleep(0.002)
+        
+# Define a function to set open or close for the servo
+def setOpenClose(ev=None):
+    global open
+    open = not open
+
 
 # Define a main function for main process
 def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
-    GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=rotateServo)
-    # while True:
-    #     # Don't do anything.
-    #     print('oh')
-    #     time.sleep(1)
+    GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
+    while True:
+        print('oh')
+        if (open):
+            for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
+                setAngle(i)     # Write to servo
+                time.sleep(0.002)
+        else:
+            for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
+                setAngle(i)
+                time.sleep(0.001)
 
 # Define a destroy function for clean up everything after
 # the script finished
