@@ -40,14 +40,9 @@ def swLed(ev=None):
 
 # Define a function to rotate the servo
 def rotateServo():
-    # for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
-    #         setAngle(i)     # Write to servo
-    #         time.sleep(0.002)
-    # Rotate the servo to 90 degrees
-    setAngle(90)
-    time.sleep(3)
-    # Rotate the servo back to 0 degrees
-    setAngle(0)
+    for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
+        setAngle(i)     # Write to servo
+        time.sleep(0.002)
     time.sleep(1)
 
 # Define a main function for main process
