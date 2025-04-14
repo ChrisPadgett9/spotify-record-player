@@ -1,5 +1,8 @@
 import RPi.GPIO as GPIO
 import time
+    
+SERVO_MIN_PULSE = 500
+SERVO_MAX_PULSE = 2500
 
 def map(value, inMin, inMax, outMin, outMax):
     return (outMax - outMin) * (value - inMin) / (inMax - inMin) + outMin
@@ -19,8 +22,7 @@ Led_status = True
 # Define a setup function for some setup
 def setup():
     global p
-    SERVO_MIN_PULSE = 500
-    SERVO_MAX_PULSE = 2500
+    
 
     ServoPin = 18
     GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
