@@ -38,18 +38,6 @@ def setup():
     # and pull up to high (3.3V)
     GPIO.setup(BtnPin, GPIO.IN)
 
-
-# Define a callback function for button callback
-def swLed(ev=None):
-    global Led_status
-    # Switch led status(on-->off; off-->on)
-    Led_status = not Led_status
-    GPIO.output(LedPin, Led_status)
-    if Led_status:
-        print ('LED OFF...')
-    else:
-        print ('...LED ON')
-
 # Define a function to rotate the servo
 def rotateServo(ev=None):
     for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
@@ -66,7 +54,7 @@ def setOpenClose(ev=None):
 def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
-    GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
+    GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose, bouncetime=200)
     global prevState
     prevState = False
     while True:
