@@ -65,18 +65,18 @@ def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
+    global prevState
+    prevState = False
     while True:
         print('oh')
         if (prevState != open):
             if (open == True):
-                global prevState
                 prevState = True
                 for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
                     print("open true: setting angle to: ", i)
                     setAngle(i)     # Write to servo
                     time.sleep(0.002)
             elif (open == False):
-                global prevState
                 prevState = False
                 for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
                     print("open false: setting angle to: ", i)
