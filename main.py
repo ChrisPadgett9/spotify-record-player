@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-    
+    # Working
 SERVO_MIN_PULSE = 500
 SERVO_MAX_PULSE = 2500
 
