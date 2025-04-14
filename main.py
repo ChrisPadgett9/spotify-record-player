@@ -70,20 +70,23 @@ def main():
     global prevState
     prevState = False
     while True:
+        setAngle(0)
+        time.sleep(3)
+        setAngle(180)
         print('oh')
-        if (prevState != open):
-            if (open == True):
-                prevState = True
-                for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
-                    print("open true: setting angle to: ", i)
-                    setAngle(i)     # Write to servo
-                    time.sleep(0.002)
-            elif (open == False):
-                prevState = False
-                for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
-                    print("open false: setting angle to: ", i)
-                    setAngle(i)
-                    time.sleep(0.002)
+        # if (prevState != open):
+        #     if (open == True):
+        #         prevState = True
+        #         for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
+        #             print("open true: setting angle to: ", i)
+        #             setAngle(i)     # Write to servo
+        #             time.sleep(0.002)
+        #     elif (open == False):
+        #         prevState = False
+        #         for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
+        #             print("open false: setting angle to: ", i)
+        #             setAngle(i)
+        #             time.sleep(0.002)
         time.sleep(1)
 
 # Define a destroy function for clean up everything after
