@@ -65,9 +65,6 @@ def main():
 # Set up a falling detect on BtnPin,
     # and callback function to swLed
     GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=setOpenClose)
-    global prevState 
-    prevState = False
-
     while True:
         print('oh')
         if (prevState != open):
