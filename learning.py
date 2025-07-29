@@ -39,22 +39,9 @@ motor_running = threading.Event()
 def motor_loop():
     while True:
         motor_running.wait()  # Wait until the event is set
-        for speed in range(0, 101, 20):  # Ramp up
-            if not motor_running.is_set():
-                break
-            print(f"Speed: {speed}%")
-            motor_forward(speed)
-            time.sleep(3)
-        stop_motor()
-        time.sleep(3)
-        for speed in range(100, -1, -20):  # Ramp down
-            if not motor_running.is_set():
-                break
-            print(f"Speed: {speed}%")
-            motor_backward(speed)
-            time.sleep(3)
-        stop_motor()
-        time.sleep(3)
+        if not motor_running.is_set():
+            break
+        motor_forward(40)
 
 def button_callback(channel):
     if motor_running.is_set():
