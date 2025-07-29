@@ -13,7 +13,7 @@ GPIO.setup(IN1, GPIO.OUT)
 GPIO.setup(IN2, GPIO.OUT)
 
 # PWM setup
-pwm = GPIO.PWM(ENA, 1000)  # 1 kHz frequency
+pwm = GPIO.PWM(ENA, 1250)  # 1 kHz frequency
 pwm.start(0)  # Start with 0% duty cycle
 
 def motor_forward(speed):
