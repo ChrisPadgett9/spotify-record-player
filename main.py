@@ -93,14 +93,14 @@ if __name__ == '__main__':
         destroy()
 
 
-def loop():
-    while True:
-        for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
-            setAngle(i)     # Write to servo
-            time.sleep(0.002)
-        time.sleep(1)
-        for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
-            setAngle(i)
-            time.sleep(0.001)
-        time.sleep(1)
+# def loop():
+#     while True:
+#         for i in range(0, 181, 5):   #make servo rotate from 0 to 180 deg
+#             setAngle(i)     # Write to servo
+#             time.sleep(0.002)
+#         time.sleep(1)
+#         for i in range(180, -1, -5): #make servo rotate from 180 to 0 deg
+#             setAngle(i)
+#             time.sleep(0.001)
+#         time.sleep(1)
 
