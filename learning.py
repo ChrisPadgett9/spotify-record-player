@@ -36,13 +36,13 @@ try:
         for speed in range(0, 101, 20):  # Ramp up
             print(f"Speed: {speed}%")
             motor_forward(speed)
-            time.sleep(1)
+            time.sleep(2)
         stop_motor()
         time.sleep(2)
         for speed in range(100, -1, -20):  # Ramp down
             print(f"Speed: {speed}%")
             motor_backward(speed)
-            time.sleep(1)
+            time.sleep(2)
         stop_motor()
         time.sleep(2)
 except KeyboardInterrupt:
