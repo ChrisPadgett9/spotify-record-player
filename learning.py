@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ENA, GPIO.OUT)
 GPIO.setup(IN1, GPIO.OUT)
 GPIO.setup(IN2, GPIO.OUT)
-GPIO.setup(BTNPIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)  # Use pull-up for button
+GPIO.setup(BTNPIN, GPIO.IN)  # Use pull-up for button
 
 # PWM setup
 pwm = GPIO.PWM(ENA, 1250)  # 1 kHz frequency
